@@ -23,12 +23,21 @@ Server resolves → Payout → Bankrolls / leaderboard update → repeat.`
 
 ## Status
 
-- [ ] M0 — repo, Unity project, git/LFS/Smart-Merge, branch protection
-- [ ] M1 — connectivity spike (two machines linked via Relay, shared state) ← first proof
-- [ ] M2 — game skeleton (bankroll + round state machine, betting math as pure C# + tests)
-- [ ] M3 — one server-authoritative mini-game
-- [ ] M4 — betting + payout (first fun demo)
-- [ ] M5 — loop + leaderboard + juice
+- [~] **M0 — repo + git hygiene + CI: DONE.** Repo live, Git LFS + Unity `.gitignore` +
+  Smart-Merge config in place, GitHub Actions runs the core tests **green**. *Pending you:*
+  generate the Unity project (editor), add Stevie, branch protection (see note).
+- [ ] **M1 — connectivity spike** (two machines linked via Relay). Scripts scaffolded in
+  `Assets/Scripts/Net/` (reference template); runs once Unity + packages + UGS are set up. ← first proof
+- [x] **M2 (core) — betting/round logic DONE + unit-tested (28 tests, CI green).** Pure C# in
+  `Assets/Scripts/Game/Core/`. Unity-side wiring (NetworkVariable bankroll, RPCs) still to do.
+- [~] **M3 — mini-game:** `DiceDuel` server-authoritative logic done + tested; needs a Unity front end.
+- [ ] **M4 — betting + payout UI** (first fun demo)
+- [ ] **M5 — loop + leaderboard + juice**
+
+> **Branch-protection note:** enforced "require PR + approval" needs a **public repo or
+> GitHub Pro** — free *private* repos can't set it. CI still runs on every PR regardless, so
+> the test gate works either way. Decision pending: make the repo public (free protection +
+> portfolio-visible) or keep it private (honor-system PRs).
 
 ## Getting started
 
