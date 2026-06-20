@@ -51,3 +51,9 @@ secrets.*
 # OS cruft
 .DS_Store
 Thumbs.db
+
+# ── .NET test project: keep its hand-written .csproj (the *.csproj rule above is for
+#    Unity's GENERATED project files), ignore only its build output. ──
+!tests/**/*.csproj
+tests/**/bin/
+tests/**/obj/
