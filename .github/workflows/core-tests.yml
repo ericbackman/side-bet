@@ -1,0 +1,24 @@
+name: core-tests
+
+# Runs the pure-C# betting/round logic tests on every PR and on pushes to main.
+# This needs NO Unity license (the Core has no engine dependency), so it's a fast,
+# free gate that keeps `main` green. Make it a required check in branch protection
+# once it's gone green at least once.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Test betting core
+        run: dotnet test tests/SideBet.Core.Tests/SideBet.Core.Tests.csproj --verbosity normal

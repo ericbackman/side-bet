@@ -1,0 +1,53 @@
+# ── Unity generated / machine-local (never commit) ──
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Asset meta files MUST be committed — only ignore a .meta when its asset is ignored.
+!/[Aa]ssets/**/*.meta
+
+# IDE / editor
+.vs/
+.vscode/
+.idea/
+ExportedObj/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity crash / build artifacts
+sysinfo.txt
+*.apk
+*.aab
+*.app
+*.unitypackage
+crashlytics-build.properties
+
+# Addressables build output
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Secrets — never commit UGS keys or env files
+*.env
+.eric.env
+secrets.*
+
+# OS cruft
+.DS_Store
+Thumbs.db
