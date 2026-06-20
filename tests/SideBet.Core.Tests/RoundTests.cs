@@ -34,7 +34,7 @@ namespace SideBet.Core.Tests
 
             Assert.Equal(RoundPhase.Settled, round.Phase);
             Assert.Equal(1200, round.PlayerById("alice").Bankroll); // 800 + 400
-            Assert.Equal(1000, round.PlayerById("bob").Bankroll);   // 900 + 200
+            Assert.Equal(1100, round.PlayerById("bob").Bankroll);   // 900 - 100 stake + 200 return
             Assert.Equal(200, net.Single(e => e.PlayerId == "alice").Net);
             Assert.Equal(100, net.Single(e => e.PlayerId == "bob").Net);
         }
