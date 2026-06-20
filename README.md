@@ -23,9 +23,10 @@ Server resolves → Payout → Bankrolls / leaderboard update → repeat.`
 
 ## Status
 
-- [~] **M0 — repo + git hygiene + CI: DONE.** Repo live, Git LFS + Unity `.gitignore` +
-  Smart-Merge config in place, GitHub Actions runs the core tests **green**. *Pending you:*
-  generate the Unity project (editor), add Stevie, branch protection (see note).
+- [x] **M0 — repo + git hygiene + CI + branch protection: DONE.** Public repo, Git LFS +
+  Unity `.gitignore` + Smart-Merge config, GitHub Actions runs the core tests **green**, and
+  `main` is protected (PR + 1 approval + the `test` check required). *Pending you:* generate
+  the Unity project (editor) and add Stevie as a collaborator.
 - [ ] **M1 — connectivity spike** (two machines linked via Relay). Scripts scaffolded in
   `Assets/Scripts/Net/` (reference template); runs once Unity + packages + UGS are set up. ← first proof
 - [x] **M2 (core) — betting/round logic DONE + unit-tested (28 tests, CI green).** Pure C# in
@@ -34,10 +35,9 @@ Server resolves → Payout → Bankrolls / leaderboard update → repeat.`
 - [ ] **M4 — betting + payout UI** (first fun demo)
 - [ ] **M5 — loop + leaderboard + juice**
 
-> **Branch-protection note:** enforced "require PR + approval" needs a **public repo or
-> GitHub Pro** — free *private* repos can't set it. CI still runs on every PR regardless, so
-> the test gate works either way. Decision pending: make the repo public (free protection +
-> portfolio-visible) or keep it private (honor-system PRs).
+> **`main` is protected:** every change goes through a PR that needs 1 approval **and** a
+> green `test` check before it can merge. Push to a branch, open a PR, have the other person
+> review — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Getting started
 
