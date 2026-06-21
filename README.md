@@ -5,7 +5,10 @@ mini-games you play against each other.** Make the odds, talk your trash, sandba
 own match, cash out. The casino is your friend group.
 
 > v1 / learning project — built by two people (Eric + Stevie) partly to learn a proper
-> multi-person git workflow. The concept will shift as we play it.
+> multi-person git workflow.
+>
+> **v1 scope is LOCKED (2026-06-20): casino-style, no movement, no physics — see
+> [V1-SCOPE.md](V1-SCOPE.md).** If a feature needs movement or physics, it's not v1.
 
 ## Stack
 
