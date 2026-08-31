@@ -4,17 +4,17 @@ A party game where you and your friends **bet, sportsbook-style, on the outcome 
 mini-games you play against each other.** Make the odds, talk your trash, sandbag your
 own match, cash out. The casino is your friend group.
 
-> v1 / learning project — built by two people (Eric + Stevie) partly to learn a proper
+> v1 / learning project: built by two people (Eric + Stevie) partly to learn a proper
 > multi-person git workflow.
 >
-> **v1 scope is LOCKED (2026-06-20): casino-style, no movement, no physics — see
+> **v1 scope is LOCKED (2026-06-20): casino-style, no movement, no physics, see
 > [V1-SCOPE.md](V1-SCOPE.md).** If a feature needs movement or physics, it's not v1.
 
 ## Stack
 
 - **Engine:** Unity 6 LTS (2D template)
 - **Netcode:** Netcode for GameObjects (NGO) + Unity Transport
-- **Connectivity:** Unity **Relay** + **Lobby** + **Authentication** — friends join by code
+- **Connectivity:** Unity **Relay** + **Lobby** + Authentication. Friends join by code
   over the internet, no port-forwarding, no Steam, free tier.
 - **Authority:** host/server-authoritative for all outcomes and payouts (clients never
   self-report results).
@@ -26,25 +26,25 @@ Server resolves → Payout → Bankrolls / leaderboard update → repeat.`
 
 ## Status
 
-- [x] **M0 — repo + git hygiene + CI + branch protection: DONE.** Public repo, Git LFS +
-  Unity `.gitignore` + Smart-Merge config, GitHub Actions runs the core tests **green**, and
+- [x] **M0: repo + git hygiene + CI + branch protection: DONE.** Public repo, Git LFS +
+  Unity `.gitignore` + Smart-Merge config, GitHub Actions runs the core tests green, and
   `main` is protected (PR + 1 approval + the `test` check required). *Pending you:* generate
   the Unity project (editor) and add Stevie as a collaborator.
-- [ ] **M1 — connectivity spike** (two machines linked via Relay). Scripts scaffolded in
+- [ ] **M1: connectivity spike** (two machines linked via Relay). Scripts scaffolded in
   `Assets/Scripts/Net/` (reference template); runs once Unity + packages + UGS are set up. ← first proof
-- [x] **M2 (core) — betting/round logic DONE + unit-tested (28 tests, CI green).** Pure C# in
+- [x] **M2 (core): betting/round logic DONE + unit-tested (28 tests, CI green).** Pure C# in
   `Assets/Scripts/Game/Core/`. Unity-side wiring (NetworkVariable bankroll, RPCs) still to do.
-- [~] **M3 — mini-game:** `DiceDuel` server-authoritative logic done + tested; needs a Unity front end.
-- [ ] **M4 — betting + payout UI** (first fun demo)
-- [ ] **M5 — loop + leaderboard + juice**
+- [~] **M3: mini-game:** `DiceDuel` server-authoritative logic done + tested; needs a Unity front end.
+- [ ] **M4: betting + payout UI** (first fun demo)
+- [ ] **M5: loop + leaderboard + juice**
 
-> **`main` is protected:** every change goes through a PR that needs 1 approval **and** a
+> **`main` is protected:** every change goes through a PR that needs 1 approval and a
 > green `test` check before it can merge. Push to a branch, open a PR, have the other person
-> review — see [CONTRIBUTING.md](CONTRIBUTING.md).
+> review: see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Getting started
 
-See **[SETUP.md](SETUP.md)** for the full ordered checklist, and **[CONTRIBUTING.md](CONTRIBUTING.md)**
+See [SETUP.md](SETUP.md) for the full ordered checklist, and [CONTRIBUTING.md](CONTRIBUTING.md)
 for the git workflow. Short version: install the pinned Unity version, clone, `git lfs install`,
 configure Smart Merge, open in Unity.
 

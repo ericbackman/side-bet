@@ -1,4 +1,4 @@
-# Side Bet — Setup & Path to First Playable
+# Side Bet: Setup & Path to First Playable
 
 Working title for a party game where you and your friends **bet, sportsbook-style, on
 the outcome of mini-games you play against each other.** Stack: **Unity + Netcode for
@@ -17,18 +17,18 @@ prove it before building anything fun.**
 |---|---|---|
 | Networking: Relay, Lobby, NGO connection, server-authoritative state, hosting | `Assets/Scripts/Net/` | **Stevie** (backend / uptime) |
 | Gameplay: betting + odds + bankroll (pure C#), round state machine, mini-games, UI | `Assets/Scripts/Game/` + `Assets/Scripts/UI/` | **Eric** |
-| Scenes / prefabs | `Assets/Scenes/`, `Assets/Prefabs/` | **coordinate** — see CONTRIBUTING.md |
+| Scenes / prefabs | `Assets/Scenes/`, `Assets/Prefabs/` | **coordinate.** See CONTRIBUTING.md |
 
 Different folders = clean pull requests. The only thing you must coordinate on is who
-edits a given **scene or prefab** at a time (Unity merges those badly even with Smart Merge).
+edits a given scene or prefab at a time (Unity merges those badly even with Smart Merge).
 
 ---
 
-## M0 — Foundations (first session, do it together on a call)
+## M0: Foundations (first session, do it together on a call)
 
 **1. Install Unity (BOTH of you, the SAME version).**
 - Install **Unity Hub**, then in Hub install the **latest Unity 6 LTS** (6000.x LTS).
-- Version mismatch silently corrupts a shared project — agree on the exact version and
+- Version mismatch silently corrupts a shared project: agree on the exact version and
   both install that one. The committed `ProjectSettings/ProjectVersion.txt` is the source
   of truth; don't "upgrade" it without telling the other person.
 
@@ -65,7 +65,7 @@ gh repo add-collaborator ericbackman/side-bet <stevie-github-username> --permiss
 
 **5. Protect `main` (this is the whole point of the exercise).**
 - GitHub → Settings → Branches → add rule for `main`: **Require a pull request before
-  merging** + **Require 1 approval**. No direct pushes to `main` — ever.
+  merging** + **Require 1 approval**. No direct pushes to `main`: ever.
 - (Optional now, great later: require status checks once CI exists.)
 
 **6. Stevie onboards (his first git rep).**
@@ -80,7 +80,7 @@ Then both: open the project in Unity, confirm it loads. Do one **throwaway PR** 
 
 ---
 
-## M1 — Connectivity spike  ← "my computer linked with Stevie" (do this next, before anything fun)
+## M1: Connectivity spike  ← "my computer linked with Stevie" (do this next, before anything fun)
 
 Goal: Eric hosts → gets a **join code** → Stevie enters it → both connected via Relay →
 a single networked object both can see update live (a shared counter or two avatars).
@@ -102,20 +102,20 @@ this account/keys (uptime is his thing); keys go in UGS, **never in git**.
 - ✅ **Done when:** you two, on different machines/networks, see the same number tick up.
 
 > Want a head start? Ask me to write these Net/ scripts (RelayBootstrap, connection UI) as
-> a reviewable first PR for Stevie — it's the fiddliest part and I can scaffold it.
+> a reviewable first PR for Stevie: it's the fiddliest part and I can scaffold it.
 
 ---
 
-## M2–M5 — From "linked" to "fun"
+## M2–M5: From "linked" to "fun"
 
 - **M2 Game skeleton:** lobby UI, per-player **bankroll** (`NetworkVariable`), and a round
   **state machine** (`Betting → Playing → Resolving → Payout`). Write the betting/payout
-  math as **pure C# with unit tests** (same pattern as the Understudy prototype) so it's
+  math as pure C# with unit tests (same pattern as the Understudy prototype) so it's
   testable off the network. (Eric, `Assets/Scripts/Game/`.)
 - **M3 One mini-game:** the simplest server-authoritative outcome (reaction-time duel or
-  higher/lower). The **host/server decides the result** — clients never self-report.
+  higher/lower). The **host/server decides the result.** Clients never self-report.
 - **M4 Betting layer:** show odds → players place a wager (RPC) → resolve → pay out → update
-  bankrolls. **← first genuinely fun demo with Stevie.**
+  bankrolls. ← first genuinely fun demo with Stevie.
 - **M5 Loop + leaderboard + juice** (sounds, a win screen, trash-talk emotes).
 
 **Milestone targets:** M0+M1 in your first one or two sessions (connectivity is the real
